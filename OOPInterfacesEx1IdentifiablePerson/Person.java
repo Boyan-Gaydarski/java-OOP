@@ -1,8 +1,6 @@
 package OOPInterfacesEx1IdentifiablePerson;
 
-public interface Person {
-
-    String getName();
+public interface Person extends Creature {
 
     int getAge();
 }
