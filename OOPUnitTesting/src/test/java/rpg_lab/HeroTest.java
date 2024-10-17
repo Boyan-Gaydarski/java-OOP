@@ -1,39 +1,24 @@
 package rpg_lab;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class HeroTest {
 
     @Test
     public void testHeroGainsXpByKillingTargets() {
 
-        Target target = new Target() {
-            @Override
-            public void takeAttack(int attackPoints) {
-
-            }
-
-            @Override
-            public int giveExperience() {
-                return 10;
-            }
-
-            @Override
-            public boolean isDead() {
-                return true;
-            }
-        };
-
-        Weapon weapon = new Weapon() {
-            @Override
-            public void attack(Target target) {
-
-            }
-        };
+        Weapon weapon = Mockito.mock(Weapon.class);
 
         Hero hero = new Hero("Test_Hero", weapon);
+
+        Target target = Mockito.mock(Target.class);
+
+        when(target.isDead()).thenReturn(true);
+        when(target.giveExperience()).thenReturn(10);
 
         hero.attack(target);
 
