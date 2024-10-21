@@ -65,7 +65,7 @@ public class DatabaseTest {
 
     @Test
     public void testRemoveLastElement() throws OperationNotSupportedException {
-        
+
         database.remove();
         Integer[] elementsInDatabase = database.getElements();
         assertEquals(NUMBERS.length - 1, database.getElements().length);
